@@ -1,0 +1,25 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+
+# node
+node_modules/
+frontend/dist/
+
+# data fetched from the internet (re-create with backend/scripts/fetch_*.py)
+data/raw/
+
+# os / editors
+.DS_Store
+.idea/
+.vscode/

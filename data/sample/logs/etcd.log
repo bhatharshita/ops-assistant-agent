@@ -1,0 +1,55 @@
+2026-10-14T00:47:00.050Z INFO etcd node-3 finished scheduled compaction at revision 8891
+2026-10-14T01:46:40.625Z INFO etcd node-1 finished scheduled compaction at revision 8820
+2026-10-14T02:02:39.545Z INFO etcd node-2 finished scheduled compaction at revision 8816
+2026-10-14T02:22:53.681Z INFO etcd node-2 finished scheduled compaction at revision 8881
+2026-10-14T02:33:10.943Z WARN etcd node-1 slow fdatasync: wal sync took 633ms, expected < 10ms
+2026-10-14T02:38:56.737Z WARN etcd node-4 slow fdatasync: wal sync took 636ms, expected < 10ms
+2026-10-14T02:45:16.557Z INFO etcd node-2 finished scheduled compaction at revision 8883
+2026-10-14T02:49:22.288Z WARN etcd node-1 slow fdatasync: wal sync took 671ms, expected < 10ms
+2026-10-14T02:50:56.102Z WARN etcd node-1 slow fdatasync: wal sync took 625ms, expected < 10ms
+2026-10-14T02:52:34.783Z WARN etcd node-2 slow fdatasync: wal sync took 682ms, expected < 10ms
+2026-10-14T02:53:19.165Z WARN etcd node-3 slow fdatasync: wal sync took 623ms, expected < 10ms
+2026-10-14T02:54:24.187Z WARN etcd node-5 slow fdatasync: wal sync took 617ms, expected < 10ms
+2026-10-14T03:14:28.640Z ERROR etcd node-4 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:16:43.862Z ERROR etcd node-4 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:19:19.974Z ERROR etcd node-2 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:20:24.879Z ERROR etcd node-5 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:24:29.017Z WARN etcd node-4 slow fdatasync: wal sync took 644ms, expected < 10ms
+2026-10-14T03:27:53.080Z ERROR etcd node-5 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:28:33.459Z ERROR etcd node-4 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:29:14.692Z ERROR etcd node-3 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:29:39.009Z ERROR etcd node-3 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:30:59.341Z ERROR etcd node-2 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:33:18.079Z ERROR etcd node-2 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:34:50.522Z INFO etcd node-5 finished scheduled compaction at revision 8839
+2026-10-14T03:40:04.810Z ERROR etcd node-3 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:45:00.964Z ERROR etcd node-5 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:45:24.261Z INFO etcd node-4 finished scheduled compaction at revision 8858
+2026-10-14T03:47:33.765Z ERROR etcd node-1 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:48:28.708Z ERROR etcd node-5 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T03:52:47.506Z ERROR etcd node-5 etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)
+2026-10-14T04:10:24.793Z WARN etcd node-5 slow fdatasync: wal sync took 677ms, expected < 10ms
+2026-10-14T04:36:18.512Z WARN etcd node-4 slow fdatasync: wal sync took 614ms, expected < 10ms
+2026-10-14T04:37:04.500Z WARN etcd node-5 slow fdatasync: wal sync took 637ms, expected < 10ms
+2026-10-14T04:49:22.545Z WARN etcd node-4 slow fdatasync: wal sync took 615ms, expected < 10ms
+2026-10-14T05:03:52.365Z INFO etcd node-1 finished scheduled compaction at revision 8821
+2026-10-14T05:45:24.111Z INFO etcd node-5 finished scheduled compaction at revision 8810
+2026-10-14T06:26:35.272Z WARN etcd node-2 etcdserver: leader changed (term 40)
+2026-10-14T06:36:47.378Z WARN etcd node-2 etcdserver: leader changed (term 16)
+2026-10-14T06:42:12.683Z WARN etcd node-4 etcdserver: leader changed (term 35)
+2026-10-14T06:47:06.584Z INFO etcd node-4 finished scheduled compaction at revision 8810
+2026-10-14T07:06:24.451Z WARN etcd node-3 etcdserver: leader changed (term 55)
+2026-10-14T07:19:39.848Z WARN etcd node-3 etcdserver: leader changed (term 61)
+2026-10-14T07:26:32.525Z WARN etcd node-3 etcdserver: leader changed (term 16)
+2026-10-14T07:29:08.000Z WARN etcd node-2 etcdserver: leader changed (term 25)
+2026-10-14T07:59:34.749Z WARN etcd node-5 etcdserver: leader changed (term 43)
+2026-10-14T13:23:36.952Z INFO etcd node-4 finished scheduled compaction at revision 8878
+2026-10-14T14:09:17.230Z INFO etcd node-2 finished scheduled compaction at revision 8855
+2026-10-14T14:18:24.763Z INFO etcd node-5 finished scheduled compaction at revision 8829
+2026-10-14T14:54:16.139Z INFO etcd node-5 finished scheduled compaction at revision 8895
+2026-10-14T16:29:49.369Z INFO etcd node-3 finished scheduled compaction at revision 8881
+2026-10-14T16:32:40.976Z INFO etcd node-4 finished scheduled compaction at revision 8838
+2026-10-14T18:36:59.146Z INFO etcd node-4 finished scheduled compaction at revision 8858
+2026-10-14T19:43:49.969Z INFO etcd node-4 finished scheduled compaction at revision 8863
+2026-10-14T21:48:13.869Z INFO etcd node-3 finished scheduled compaction at revision 8876
+2026-10-14T23:45:37.710Z INFO etcd node-3 finished scheduled compaction at revision 8873

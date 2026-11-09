@@ -1,0 +1,48 @@
+2026-10-14T00:19:41.460Z INFO coredns node-4 [INFO] 10.244.2.12:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T00:41:34.290Z INFO coredns node-5 [INFO] 10.244.2.31:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T01:18:03.178Z INFO coredns node-5 [INFO] 10.244.2.47:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T05:23:33.912Z INFO coredns node-1 [INFO] 10.244.2.60:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T06:24:33.391Z INFO coredns node-2 [INFO] 10.244.2.37:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T07:09:54.926Z INFO coredns node-5 [INFO] 10.244.2.75:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T07:32:53.967Z INFO coredns node-3 [INFO] 10.244.2.15:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T07:58:42.479Z INFO coredns node-5 [INFO] 10.244.2.49:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T10:30:52.792Z INFO coredns node-4 [INFO] 10.244.2.16:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T10:36:31.896Z INFO coredns node-1 [INFO] 10.244.2.27:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T10:43:01.248Z INFO coredns node-4 [INFO] 10.244.2.45:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T10:55:41.319Z INFO coredns node-3 [INFO] 10.244.2.25:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T12:03:06.201Z ERROR coredns node-2 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.87:41234->8.8.8.8:53: i/o timeout
+2026-10-14T12:04:49.627Z ERROR coredns node-2 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.61:41234->8.8.8.8:53: i/o timeout
+2026-10-14T12:08:34.079Z ERROR coredns node-2 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.40:41234->8.8.8.8:53: i/o timeout
+2026-10-14T12:09:39.100Z ERROR coredns node-1 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.56:41234->8.8.8.8:53: i/o timeout
+2026-10-14T12:17:52.574Z ERROR coredns node-3 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.19:41234->8.8.8.8:53: i/o timeout
+2026-10-14T12:21:46.540Z ERROR coredns node-5 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.56:41234->8.8.8.8:53: i/o timeout
+2026-10-14T12:36:29.152Z ERROR coredns node-4 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.35:41234->8.8.8.8:53: i/o timeout
+2026-10-14T12:38:31.298Z ERROR coredns node-1 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.21:41234->8.8.8.8:53: i/o timeout
+2026-10-14T12:39:34.256Z ERROR coredns node-4 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.37:41234->8.8.8.8:53: i/o timeout
+2026-10-14T12:52:41.465Z ERROR coredns node-4 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.89:41234->8.8.8.8:53: i/o timeout
+2026-10-14T12:56:23.604Z ERROR coredns node-4 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.43:41234->8.8.8.8:53: i/o timeout
+2026-10-14T13:00:02.899Z ERROR coredns node-4 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.57:41234->8.8.8.8:53: i/o timeout
+2026-10-14T13:02:16.020Z ERROR coredns node-4 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.36:41234->8.8.8.8:53: i/o timeout
+2026-10-14T13:11:23.722Z ERROR coredns node-5 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.37:41234->8.8.8.8:53: i/o timeout
+2026-10-14T13:12:07.796Z INFO coredns node-4 [INFO] 10.244.2.12:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T13:13:48.751Z INFO coredns node-4 [INFO] 10.244.2.25:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T13:16:09.815Z ERROR coredns node-4 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.12:41234->8.8.8.8:53: i/o timeout
+2026-10-14T13:28:07.909Z ERROR coredns node-5 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.33:41234->8.8.8.8:53: i/o timeout
+2026-10-14T13:40:18.066Z ERROR coredns node-5 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.76:41234->8.8.8.8:53: i/o timeout
+2026-10-14T13:54:04.710Z ERROR coredns node-3 [ERROR] plugin/errors: 2 api.example.com. A: read udp 10.244.1.74:41234->8.8.8.8:53: i/o timeout
+2026-10-14T14:56:34.943Z INFO coredns node-4 [INFO] 10.244.2.81:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T15:54:06.555Z INFO coredns node-4 [INFO] 10.244.2.98:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T16:55:46.859Z INFO coredns node-4 [INFO] 10.244.2.62:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T17:02:04.526Z INFO coredns node-3 [INFO] 10.244.2.71:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T18:32:38.358Z INFO coredns node-4 [INFO] 10.244.2.44:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T19:41:34.653Z INFO coredns node-3 [INFO] 10.244.2.93:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T19:47:52.885Z INFO coredns node-1 [INFO] 10.244.2.85:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T20:51:52.481Z INFO coredns node-4 [INFO] 10.244.2.53:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T21:06:12.909Z INFO coredns node-1 [INFO] 10.244.2.36:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T22:07:28.486Z INFO coredns node-5 [INFO] 10.244.2.96:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T22:23:00.291Z INFO coredns node-3 [INFO] 10.244.2.66:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T22:25:18.126Z INFO coredns node-5 [INFO] 10.244.2.35:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T22:43:45.101Z INFO coredns node-2 [INFO] 10.244.2.64:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T23:17:02.990Z INFO coredns node-4 [INFO] 10.244.2.66:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T23:31:32.156Z INFO coredns node-2 [INFO] 10.244.2.59:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s
+2026-10-14T23:58:24.162Z INFO coredns node-4 [INFO] 10.244.2.20:51234 - "A IN shop.svc.cluster.local." NOERROR 0.0012s

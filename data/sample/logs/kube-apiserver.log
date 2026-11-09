@@ -1,0 +1,72 @@
+2026-10-14T00:28:07.541Z WARN kube-apiserver node-5 Slow request: "GET /api/v1/pods" took 4.49s (limit not set, no pagination)
+2026-10-14T00:36:58.590Z INFO kube-apiserver node-3 HTTP "GET /healthz" 200 74ms
+2026-10-14T00:57:58.262Z INFO kube-apiserver node-1 HTTP "GET /healthz" 200 32ms
+2026-10-14T01:12:24.542Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 42ms
+2026-10-14T01:29:39.695Z WARN kube-apiserver node-4 Slow request: "GET /api/v1/pods" took 4.50s (limit not set, no pagination)
+2026-10-14T01:51:34.484Z WARN kube-apiserver node-3 Slow request: "GET /api/v1/pods" took 4.31s (limit not set, no pagination)
+2026-10-14T01:56:01.829Z WARN kube-apiserver node-2 Slow request: "GET /api/v1/pods" took 4.30s (limit not set, no pagination)
+2026-10-14T03:02:55.838Z ERROR kube-apiserver node-2 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.61s)
+2026-10-14T03:06:01.522Z ERROR kube-apiserver node-2 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.16s)
+2026-10-14T03:10:10.443Z ERROR kube-apiserver node-5 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.85s)
+2026-10-14T03:26:15.437Z ERROR kube-apiserver node-5 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.60s)
+2026-10-14T03:31:05.919Z ERROR kube-apiserver node-2 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.82s)
+2026-10-14T03:33:16.364Z ERROR kube-apiserver node-5 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.63s)
+2026-10-14T03:37:14.709Z ERROR kube-apiserver node-2 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.19s)
+2026-10-14T03:38:04.227Z ERROR kube-apiserver node-4 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.79s)
+2026-10-14T03:39:25.682Z INFO kube-apiserver node-2 HTTP "GET /healthz" 200 61ms
+2026-10-14T03:40:18.282Z INFO kube-apiserver node-2 HTTP "GET /healthz" 200 94ms
+2026-10-14T03:47:57.100Z ERROR kube-apiserver node-2 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.84s)
+2026-10-14T03:49:43.560Z ERROR kube-apiserver node-5 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.25s)
+2026-10-14T03:53:03.108Z ERROR kube-apiserver node-2 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.66s)
+2026-10-14T03:54:46.068Z ERROR kube-apiserver node-4 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.86s)
+2026-10-14T03:56:46.467Z ERROR kube-apiserver node-2 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.85s)
+2026-10-14T03:57:39.699Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 17ms
+2026-10-14T04:03:43.618Z ERROR kube-apiserver node-5 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.77s)
+2026-10-14T04:13:20.561Z ERROR kube-apiserver node-1 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.59s)
+2026-10-14T04:15:56.541Z ERROR kube-apiserver node-3 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.12s)
+2026-10-14T04:22:30.193Z ERROR kube-apiserver node-1 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.55s)
+2026-10-14T04:26:11.372Z ERROR kube-apiserver node-4 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.64s)
+2026-10-14T04:37:47.231Z ERROR kube-apiserver node-5 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.55s)
+2026-10-14T04:38:11.830Z ERROR kube-apiserver node-2 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.87s)
+2026-10-14T04:39:39.267Z ERROR kube-apiserver node-5 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.58s)
+2026-10-14T04:47:04.563Z INFO kube-apiserver node-1 HTTP "GET /healthz" 200 80ms
+2026-10-14T04:47:39.001Z ERROR kube-apiserver node-4 etcd request failed: context deadline exceeded (resource=pods verb=LIST latency=10.58s)
+2026-10-14T05:04:47.236Z INFO kube-apiserver node-3 HTTP "GET /healthz" 200 44ms
+2026-10-14T05:08:05.314Z WARN kube-apiserver node-4 Slow request: "GET /api/v1/pods" took 4.53s (limit not set, no pagination)
+2026-10-14T05:22:52.570Z INFO kube-apiserver node-1 HTTP "GET /healthz" 200 84ms
+2026-10-14T06:31:15.913Z WARN kube-apiserver node-3 Slow request: "GET /api/v1/pods" took 4.70s (limit not set, no pagination)
+2026-10-14T06:33:01.338Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 4ms
+2026-10-14T07:56:27.821Z WARN kube-apiserver node-4 Slow request: "GET /api/v1/pods" took 4.54s (limit not set, no pagination)
+2026-10-14T08:51:12.174Z INFO kube-apiserver node-5 HTTP "GET /healthz" 200 78ms
+2026-10-14T09:11:33.866Z WARN kube-apiserver node-2 Slow request: "GET /api/v1/pods" took 4.91s (limit not set, no pagination)
+2026-10-14T09:19:56.873Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 93ms
+2026-10-14T10:16:51.431Z INFO kube-apiserver node-3 HTTP "GET /healthz" 200 9ms
+2026-10-14T10:17:11.714Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 24ms
+2026-10-14T10:24:15.988Z INFO kube-apiserver node-3 HTTP "GET /healthz" 200 82ms
+2026-10-14T11:09:38.471Z INFO kube-apiserver node-3 HTTP "GET /healthz" 200 99ms
+2026-10-14T11:26:50.571Z INFO kube-apiserver node-3 HTTP "GET /healthz" 200 39ms
+2026-10-14T12:08:34.506Z INFO kube-apiserver node-3 HTTP "GET /healthz" 200 2ms
+2026-10-14T12:31:18.397Z INFO kube-apiserver node-3 HTTP "GET /healthz" 200 79ms
+2026-10-14T14:12:36.663Z INFO kube-apiserver node-2 HTTP "GET /healthz" 200 14ms
+2026-10-14T14:24:34.963Z INFO kube-apiserver node-1 HTTP "GET /healthz" 200 73ms
+2026-10-14T15:02:30.438Z WARN kube-apiserver node-3 Slow request: "GET /api/v1/pods" took 4.57s (limit not set, no pagination)
+2026-10-14T15:54:42.515Z INFO kube-apiserver node-1 HTTP "GET /healthz" 200 83ms
+2026-10-14T16:04:00.574Z INFO kube-apiserver node-5 HTTP "GET /healthz" 200 28ms
+2026-10-14T16:15:22.128Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 51ms
+2026-10-14T16:43:56.778Z INFO kube-apiserver node-3 HTTP "GET /healthz" 200 88ms
+2026-10-14T17:56:24.606Z INFO kube-apiserver node-5 HTTP "GET /healthz" 200 78ms
+2026-10-14T17:58:34.947Z INFO kube-apiserver node-1 HTTP "GET /healthz" 200 45ms
+2026-10-14T18:02:52.896Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 33ms
+2026-10-14T18:04:59.497Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 69ms
+2026-10-14T18:16:09.485Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 36ms
+2026-10-14T18:46:58.911Z INFO kube-apiserver node-3 HTTP "GET /healthz" 200 69ms
+2026-10-14T20:02:15.468Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 3ms
+2026-10-14T20:23:22.484Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 14ms
+2026-10-14T21:23:51.189Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 91ms
+2026-10-14T21:32:50.002Z INFO kube-apiserver node-4 HTTP "GET /healthz" 200 29ms
+2026-10-14T21:42:57.139Z WARN kube-apiserver node-5 Slow request: "GET /api/v1/pods" took 4.90s (limit not set, no pagination)
+2026-10-14T21:45:57.746Z INFO kube-apiserver node-5 HTTP "GET /healthz" 200 73ms
+2026-10-14T22:35:42.118Z INFO kube-apiserver node-2 HTTP "GET /healthz" 200 10ms
+2026-10-14T23:07:45.718Z INFO kube-apiserver node-1 HTTP "GET /healthz" 200 21ms
+2026-10-14T23:09:10.910Z INFO kube-apiserver node-1 HTTP "GET /healthz" 200 75ms
+2026-10-14T23:32:13.398Z INFO kube-apiserver node-5 HTTP "GET /healthz" 200 4ms

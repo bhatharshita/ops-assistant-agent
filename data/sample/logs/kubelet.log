@@ -1,0 +1,154 @@
+2026-10-14T00:04:40.392Z ERROR kubelet node-4 Back-off restarting failed container "worker" in pod "batch/etl-93" (CrashLoopBackOff)
+2026-10-14T00:05:06.343Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-82"
+2026-10-14T00:13:55.452Z INFO kubelet node-1 SyncLoop (PLEG): event for pod "default/web-89"
+2026-10-14T00:28:02.771Z ERROR kubelet node-5 Back-off restarting failed container "worker" in pod "batch/etl-40" (CrashLoopBackOff)
+2026-10-14T00:34:04.583Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-52"
+2026-10-14T00:35:41.516Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-53"
+2026-10-14T01:45:29.653Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-65"
+2026-10-14T02:28:01.266Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-53"
+2026-10-14T02:36:05.871Z INFO kubelet node-4 SyncLoop (PLEG): event for pod "default/web-45"
+2026-10-14T02:40:37.996Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-59" (CrashLoopBackOff)
+2026-10-14T02:59:44.855Z ERROR kubelet node-5 Container "api" in pod "shop/checkout-11" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T03:33:15.154Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-6"
+2026-10-14T03:47:09.168Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-91"
+2026-10-14T03:49:14.534Z INFO kubelet node-1 SyncLoop (PLEG): event for pod "default/web-49"
+2026-10-14T03:55:17.812Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-82" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T04:17:08.080Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-5"
+2026-10-14T04:36:14.792Z INFO kubelet node-4 SyncLoop (PLEG): event for pod "default/web-87"
+2026-10-14T04:46:25.720Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-21" (CrashLoopBackOff)
+2026-10-14T04:47:22.892Z INFO kubelet node-4 SyncLoop (PLEG): event for pod "default/web-45"
+2026-10-14T04:49:39.250Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-86" (CrashLoopBackOff)
+2026-10-14T05:02:30.402Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-86"
+2026-10-14T05:02:39.573Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-78"
+2026-10-14T05:14:50.102Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-4" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T05:44:48.440Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-73" (CrashLoopBackOff)
+2026-10-14T05:52:38.411Z ERROR kubelet node-3 Container "api" in pod "shop/checkout-14" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T06:06:47.769Z INFO kubelet node-4 SyncLoop (PLEG): event for pod "default/web-1"
+2026-10-14T06:19:16.550Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-23" (CrashLoopBackOff)
+2026-10-14T06:20:49.591Z INFO kubelet node-1 SyncLoop (PLEG): event for pod "default/web-96"
+2026-10-14T06:21:53.050Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-9"
+2026-10-14T06:22:28.828Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-86"
+2026-10-14T06:25:32.543Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-73" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T06:40:07.806Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-98" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T06:40:35.399Z ERROR kubelet node-5 Container "api" in pod "shop/checkout-98" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T06:41:56.120Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-52"
+2026-10-14T07:09:45.331Z ERROR kubelet node-3 Back-off restarting failed container "worker" in pod "batch/etl-78" (CrashLoopBackOff)
+2026-10-14T07:15:37.178Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-2"
+2026-10-14T07:19:28.185Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-29"
+2026-10-14T07:23:53.213Z INFO kubelet node-1 SyncLoop (PLEG): event for pod "default/web-46"
+2026-10-14T07:32:01.997Z INFO kubelet node-1 SyncLoop (PLEG): event for pod "default/web-93"
+2026-10-14T07:52:41.504Z INFO kubelet node-1 SyncLoop (PLEG): event for pod "default/web-99"
+2026-10-14T08:04:41.432Z ERROR kubelet node-2 Container "api" in pod "shop/checkout-13" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T08:06:50.254Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-30" (CrashLoopBackOff)
+2026-10-14T08:31:35.033Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-90" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T08:36:55.459Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-34" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T08:41:16.130Z ERROR kubelet node-5 Container "api" in pod "shop/checkout-18" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T09:14:03.510Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-60" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T09:14:40.500Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-25"
+2026-10-14T09:23:48.835Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m74s ago; threshold is 3m0s
+2026-10-14T09:25:13.828Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m60s ago; threshold is 3m0s
+2026-10-14T09:44:45.239Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m58s ago; threshold is 3m0s
+2026-10-14T09:44:57.659Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m57s ago; threshold is 3m0s
+2026-10-14T09:50:07.275Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m70s ago; threshold is 3m0s
+2026-10-14T10:12:27.907Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m14s ago; threshold is 3m0s
+2026-10-14T10:21:03.664Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-80"
+2026-10-14T10:24:03.399Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m87s ago; threshold is 3m0s
+2026-10-14T10:36:14.146Z INFO kubelet node-4 SyncLoop (PLEG): event for pod "default/web-72"
+2026-10-14T10:43:42.509Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m61s ago; threshold is 3m0s
+2026-10-14T10:50:07.951Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-9" (CrashLoopBackOff)
+2026-10-14T10:57:36.665Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m8s ago; threshold is 3m0s
+2026-10-14T10:58:36.354Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m53s ago; threshold is 3m0s
+2026-10-14T10:59:55.410Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-13"
+2026-10-14T11:00:44.341Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-32" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T11:25:20.160Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m13s ago; threshold is 3m0s
+2026-10-14T11:34:43.202Z ERROR kubelet node-3 PLEG is not healthy: pleg was last seen active 3m31s ago; threshold is 3m0s
+2026-10-14T11:43:28.663Z INFO kubelet node-1 SyncLoop (PLEG): event for pod "default/web-12"
+2026-10-14T11:58:53.081Z ERROR kubelet node-5 Container "api" in pod "shop/checkout-83" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T12:11:03.189Z ERROR kubelet node-1 Back-off restarting failed container "worker" in pod "batch/etl-81" (CrashLoopBackOff)
+2026-10-14T12:13:42.562Z ERROR kubelet node-2 Container "api" in pod "shop/checkout-7" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T12:28:40.598Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-88"
+2026-10-14T12:41:54.950Z ERROR kubelet node-5 Back-off restarting failed container "worker" in pod "batch/etl-2" (CrashLoopBackOff)
+2026-10-14T12:56:41.808Z ERROR kubelet node-4 Back-off restarting failed container "worker" in pod "batch/etl-68" (CrashLoopBackOff)
+2026-10-14T13:04:42.398Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-76" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T13:14:55.758Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-80" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T13:16:37.969Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-37"
+2026-10-14T13:28:11.012Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-90" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T13:39:30.124Z INFO kubelet node-4 SyncLoop (PLEG): event for pod "default/web-71"
+2026-10-14T14:01:47.644Z ERROR kubelet node-5 Container "api" in pod "shop/checkout-52" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T14:06:04.185Z ERROR kubelet node-5 Failed to pull image "registry.example.com/team/app:v2": unauthorized: authentication required (ImagePullBackOff)
+2026-10-14T14:07:20.637Z ERROR kubelet node-1 Back-off restarting failed container "worker" in pod "batch/etl-91" (CrashLoopBackOff)
+2026-10-14T14:10:17.962Z ERROR kubelet node-1 Container "api" in pod "shop/checkout-12" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T14:30:56.692Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-27"
+2026-10-14T14:32:55.838Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-15"
+2026-10-14T14:45:28.227Z ERROR kubelet node-4 Failed to pull image "registry.example.com/team/app:v34": unauthorized: authentication required (ImagePullBackOff)
+2026-10-14T14:48:45.774Z ERROR kubelet node-4 Failed to pull image "registry.example.com/team/app:v28": unauthorized: authentication required (ImagePullBackOff)
+2026-10-14T14:50:45.230Z ERROR kubelet node-5 Failed to pull image "registry.example.com/team/app:v85": unauthorized: authentication required (ImagePullBackOff)
+2026-10-14T15:08:46.664Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-5" (CrashLoopBackOff)
+2026-10-14T15:13:21.541Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-6"
+2026-10-14T15:14:21.489Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-32" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T15:15:22.500Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-48" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T15:20:45.835Z ERROR kubelet node-1 Container "api" in pod "shop/checkout-36" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T15:26:11.821Z ERROR kubelet node-2 Failed to pull image "registry.example.com/team/app:v25": unauthorized: authentication required (ImagePullBackOff)
+2026-10-14T15:29:30.622Z INFO kubelet node-4 SyncLoop (PLEG): event for pod "default/web-41"
+2026-10-14T15:35:48.814Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-67" (CrashLoopBackOff)
+2026-10-14T15:36:56.952Z ERROR kubelet node-5 Failed to pull image "registry.example.com/team/app:v13": unauthorized: authentication required (ImagePullBackOff)
+2026-10-14T15:42:45.911Z INFO kubelet node-4 SyncLoop (PLEG): event for pod "default/web-57"
+2026-10-14T15:43:44.618Z ERROR kubelet node-1 Failed to pull image "registry.example.com/team/app:v22": unauthorized: authentication required (ImagePullBackOff)
+2026-10-14T15:51:10.003Z ERROR kubelet node-4 Failed to pull image "registry.example.com/team/app:v37": unauthorized: authentication required (ImagePullBackOff)
+2026-10-14T15:56:15.804Z ERROR kubelet node-2 Failed to pull image "registry.example.com/team/app:v22": unauthorized: authentication required (ImagePullBackOff)
+2026-10-14T16:00:18.880Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-52"
+2026-10-14T16:01:42.712Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-39"
+2026-10-14T16:04:23.654Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-31"
+2026-10-14T16:14:26.159Z ERROR kubelet node-5 Container "api" in pod "shop/checkout-12" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T16:18:29.685Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-43"
+2026-10-14T16:19:35.806Z ERROR kubelet node-1 Back-off restarting failed container "worker" in pod "batch/etl-69" (CrashLoopBackOff)
+2026-10-14T16:29:59.064Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-65"
+2026-10-14T16:30:56.505Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-42" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T16:43:58.109Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-17"
+2026-10-14T16:54:34.302Z ERROR kubelet node-1 Container "api" in pod "shop/checkout-30" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T17:15:58.032Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-47"
+2026-10-14T17:29:05.564Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-56"
+2026-10-14T17:52:46.303Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-96" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T17:57:18.077Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-79"
+2026-10-14T18:01:15.091Z ERROR kubelet node-4 Back-off restarting failed container "worker" in pod "batch/etl-44" (CrashLoopBackOff)
+2026-10-14T18:06:51.532Z WARN kubelet node-5 Eviction manager: the node was low on resource: ephemeral-storage (DiskPressure)
+2026-10-14T18:08:13.285Z WARN kubelet node-5 Eviction manager: the node was low on resource: ephemeral-storage (DiskPressure)
+2026-10-14T18:22:47.328Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-61" (CrashLoopBackOff)
+2026-10-14T18:33:12.331Z ERROR kubelet node-5 Container "api" in pod "shop/checkout-30" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T18:35:35.999Z WARN kubelet node-5 Eviction manager: the node was low on resource: ephemeral-storage (DiskPressure)
+2026-10-14T19:00:34.865Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-9" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T19:15:12.313Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-35"
+2026-10-14T19:20:21.977Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-44" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T19:22:15.075Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-69" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T19:28:16.571Z WARN kubelet node-5 Eviction manager: the node was low on resource: ephemeral-storage (DiskPressure)
+2026-10-14T19:35:03.593Z ERROR kubelet node-5 Back-off restarting failed container "worker" in pod "batch/etl-69" (CrashLoopBackOff)
+2026-10-14T19:43:22.922Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-52" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T19:50:18.667Z WARN kubelet node-5 Eviction manager: the node was low on resource: ephemeral-storage (DiskPressure)
+2026-10-14T19:55:16.647Z WARN kubelet node-5 Eviction manager: the node was low on resource: ephemeral-storage (DiskPressure)
+2026-10-14T20:00:33.020Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-37"
+2026-10-14T20:01:48.175Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-71"
+2026-10-14T20:13:41.563Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-30" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T20:39:58.430Z ERROR kubelet node-3 Container "api" in pod "shop/checkout-21" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T20:45:01.067Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-53"
+2026-10-14T20:47:43.322Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-59" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T20:55:54.337Z INFO kubelet node-4 SyncLoop (PLEG): event for pod "default/web-29"
+2026-10-14T20:56:17.342Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-28" (CrashLoopBackOff)
+2026-10-14T21:01:57.286Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-84" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T21:06:08.069Z INFO kubelet node-3 SyncLoop (PLEG): event for pod "default/web-37"
+2026-10-14T21:15:02.145Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-25" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T21:36:03.146Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-40"
+2026-10-14T21:41:38.524Z INFO kubelet node-5 SyncLoop (PLEG): event for pod "default/web-5"
+2026-10-14T22:02:36.919Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-63" (CrashLoopBackOff)
+2026-10-14T22:04:55.058Z ERROR kubelet node-2 Unable to authenticate the request: x509: certificate has expired or is not yet valid
+2026-10-14T22:14:46.129Z ERROR kubelet node-2 Unable to authenticate the request: x509: certificate has expired or is not yet valid
+2026-10-14T22:17:37.196Z ERROR kubelet node-4 Back-off restarting failed container "worker" in pod "batch/etl-89" (CrashLoopBackOff)
+2026-10-14T22:17:46.254Z INFO kubelet node-1 SyncLoop (PLEG): event for pod "default/web-2"
+2026-10-14T22:21:42.790Z INFO kubelet node-1 SyncLoop (PLEG): event for pod "default/web-18"
+2026-10-14T22:24:13.188Z ERROR kubelet node-2 Unable to authenticate the request: x509: certificate has expired or is not yet valid
+2026-10-14T22:28:46.019Z ERROR kubelet node-4 Container "api" in pod "shop/checkout-78" was OOMKilled (exit code 137), memory limit 512Mi
+2026-10-14T22:31:21.494Z ERROR kubelet node-2 Unable to authenticate the request: x509: certificate has expired or is not yet valid
+2026-10-14T22:32:29.149Z INFO kubelet node-1 SyncLoop (PLEG): event for pod "default/web-34"
+2026-10-14T22:43:26.779Z ERROR kubelet node-2 Back-off restarting failed container "worker" in pod "batch/etl-68" (CrashLoopBackOff)
+2026-10-14T22:43:35.485Z ERROR kubelet node-1 Back-off restarting failed container "worker" in pod "batch/etl-63" (CrashLoopBackOff)
+2026-10-14T23:22:18.544Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-31"
+2026-10-14T23:30:53.563Z INFO kubelet node-2 SyncLoop (PLEG): event for pod "default/web-95"

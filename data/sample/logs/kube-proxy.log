@@ -1,0 +1,30 @@
+2026-10-14T01:14:04.889Z INFO kube-proxy node-3 Syncing ipvs proxier rules took 77ms
+2026-10-14T02:11:21.730Z INFO kube-proxy node-1 Syncing ipvs proxier rules took 12ms
+2026-10-14T02:22:48.919Z INFO kube-proxy node-1 Syncing ipvs proxier rules took 84ms
+2026-10-14T03:01:42.827Z INFO kube-proxy node-5 Syncing ipvs proxier rules took 82ms
+2026-10-14T07:29:55.272Z INFO kube-proxy node-1 Syncing ipvs proxier rules took 74ms
+2026-10-14T07:30:01.724Z INFO kube-proxy node-3 Syncing ipvs proxier rules took 48ms
+2026-10-14T07:43:50.139Z INFO kube-proxy node-2 Syncing ipvs proxier rules took 9ms
+2026-10-14T08:03:08.584Z WARN kube-proxy node-4 conntrack: failed to clear stale UDP entries for service 10.96.0.68
+2026-10-14T08:06:49.023Z WARN kube-proxy node-1 conntrack: failed to clear stale UDP entries for service 10.96.0.61
+2026-10-14T08:13:17.357Z WARN kube-proxy node-5 conntrack: failed to clear stale UDP entries for service 10.96.0.6
+2026-10-14T08:26:53.342Z WARN kube-proxy node-3 conntrack: failed to clear stale UDP entries for service 10.96.0.66
+2026-10-14T08:29:10.520Z INFO kube-proxy node-4 Syncing ipvs proxier rules took 93ms
+2026-10-14T08:35:36.603Z WARN kube-proxy node-4 conntrack: failed to clear stale UDP entries for service 10.96.0.65
+2026-10-14T10:21:53.699Z INFO kube-proxy node-3 Syncing ipvs proxier rules took 17ms
+2026-10-14T10:53:20.558Z INFO kube-proxy node-5 Syncing ipvs proxier rules took 56ms
+2026-10-14T10:59:34.415Z INFO kube-proxy node-1 Syncing ipvs proxier rules took 8ms
+2026-10-14T13:21:09.875Z INFO kube-proxy node-5 Syncing ipvs proxier rules took 72ms
+2026-10-14T13:28:48.882Z INFO kube-proxy node-1 Syncing ipvs proxier rules took 53ms
+2026-10-14T14:02:54.923Z INFO kube-proxy node-3 Syncing ipvs proxier rules took 49ms
+2026-10-14T15:37:18.548Z INFO kube-proxy node-5 Syncing ipvs proxier rules took 93ms
+2026-10-14T16:27:58.137Z INFO kube-proxy node-4 Syncing ipvs proxier rules took 92ms
+2026-10-14T17:27:13.067Z INFO kube-proxy node-5 Syncing ipvs proxier rules took 39ms
+2026-10-14T17:30:37.791Z INFO kube-proxy node-3 Syncing ipvs proxier rules took 55ms
+2026-10-14T19:51:28.193Z INFO kube-proxy node-4 Syncing ipvs proxier rules took 54ms
+2026-10-14T20:46:17.670Z INFO kube-proxy node-4 Syncing ipvs proxier rules took 58ms
+2026-10-14T21:18:50.176Z INFO kube-proxy node-4 Syncing ipvs proxier rules took 44ms
+2026-10-14T21:49:57.241Z INFO kube-proxy node-1 Syncing ipvs proxier rules took 11ms
+2026-10-14T22:53:09.439Z INFO kube-proxy node-4 Syncing ipvs proxier rules took 9ms
+2026-10-14T23:52:14.843Z INFO kube-proxy node-5 Syncing ipvs proxier rules took 38ms
+2026-10-14T23:57:56.897Z INFO kube-proxy node-4 Syncing ipvs proxier rules took 55ms

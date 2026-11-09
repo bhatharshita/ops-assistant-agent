@@ -1,0 +1,271 @@
+{
+  "_note": "SYNTHETIC sample data written for this project. The issues are modelled on common, publicly documented Kubernetes failure modes but are not copies of real GitHub issues. Use scripts/fetch_github_issues.py to ingest real public issues instead.",
+  "repo": "sample/k8s-ops",
+  "issues": [
+    {
+      "number": 1001,
+      "title": "Pods stuck in CrashLoopBackOff after upgrading containerd to 1.7.20",
+      "state": "closed",
+      "labels": ["kind/bug", "sig/node", "area/cri"],
+      "created_at": "2026-09-02T08:14:00Z",
+      "body": "After upgrading containerd from 1.6 to 1.7.20 on our worker nodes, about a third of the pods go into CrashLoopBackOff. kubectl describe shows 'failed to create shim task: OCI runtime create failed'. The kubelet log repeats 'back-off restarting failed container'. Nodes that were not upgraded are fine.",
+      "comments": [
+        "Same here. The node uses cgroup v2 and containerd's config.toml still had SystemdCgroup = false.",
+        "Resolution: set SystemdCgroup = true under the runc options in /etc/containerd/config.toml so containerd and the kubelet agree on the systemd cgroup driver, then restart containerd. Pods recover without being recreated."
+      ]
+    },
+    {
+      "number": 1002,
+      "title": "kube-scheduler leaves pods Pending with topologySpreadConstraints on tainted nodes",
+      "state": "open",
+      "labels": ["kind/bug", "sig/scheduling"],
+      "created_at": "2026-09-03T11:20:00Z",
+      "body": "Deployments that use topologySpreadConstraints with whenUnsatisfiable: DoNotSchedule stay Pending. The FailedScheduling event says '0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}, 2 node(s) didn't match pod topology spread constraints'. The tainted GPU nodes are still counted as topology domains.",
+      "comments": [
+        "Workaround: set nodeTaintsPolicy: Honor in the topology spread constraint so tainted nodes the pod cannot tolerate are excluded from the skew calculation."
+      ]
+    },
+    {
+      "number": 1003,
+      "title": "etcd 'mvcc: database space exceeded' makes all API writes fail",
+      "state": "closed",
+      "labels": ["kind/bug", "area/etcd", "sig/api-machinery"],
+      "created_at": "2026-09-05T02:41:00Z",
+      "body": "Every create/update through kube-apiserver returns 'etcdserver: mvcc: database space exceeded'. The etcd alarm list shows NOSPACE. The cluster has many short-lived Jobs and events, and the etcd database reached the default 2 GiB quota.",
+      "comments": [
+        "Resolution: compact to the current revision, run etcdctl defrag on each member, then etcdctl alarm disarm. Long term we raised --quota-backend-bytes to 8 GiB and enabled automatic compaction (--auto-compaction-retention=1h)."
+      ]
+    },
+    {
+      "number": 1004,
+      "title": "CoreDNS i/o timeout resolving external names under load",
+      "state": "closed",
+      "labels": ["kind/bug", "sig/network", "area/dns"],
+      "created_at": "2026-09-06T15:05:00Z",
+      "body": "During traffic peaks application pods log 'dial udp 10.96.0.10:53: i/o timeout' and CoreDNS logs 'read udp ... i/o timeout' to the upstream resolver. Only 2 CoreDNS replicas run for 120 nodes.",
+      "comments": [
+        "Resolution: scaled CoreDNS with the cluster-proportional-autoscaler, increased the cache plugin TTL to 30s and deployed NodeLocal DNSCache so most lookups never leave the node. Timeouts stopped."
+      ]
+    },
+    {
+      "number": 1005,
+      "title": "kube-state-metrics OOMKilled on large clusters",
+      "state": "closed",
+      "labels": ["kind/bug", "sig/instrumentation"],
+      "created_at": "2026-09-08T09:30:00Z",
+      "body": "kube-state-metrics restarts every few minutes with reason OOMKilled (exit code 137). The default memory limit of 250Mi is too low for a cluster with 40k pods.",
+      "comments": [
+        "Resolution: raised the memory limit to 1Gi and enabled horizontal sharding (--shard / --total-shards) across 3 replicas."
+      ]
+    },
+    {
+      "number": 1006,
+      "title": "kubelet reports 'PLEG is not healthy' on nodes with many containers",
+      "state": "open",
+      "labels": ["kind/bug", "sig/node", "area/kubelet"],
+      "created_at": "2026-09-09T13:12:00Z",
+      "body": "Nodes flap between Ready and NotReady. The kubelet log shows 'PLEG is not healthy: pleg was last seen active 3m0s ago; threshold is 3m0s'. These nodes run 200+ containers and use slow network-attached disks; container runtime calls take several seconds.",
+      "comments": [
+        "PLEG (pod lifecycle event generator) relists all containers from the runtime. Slow runtime or disk I/O makes the relist exceed the threshold. Reducing maxPods to 110 and moving /var/lib/containerd to local SSD fixed it for us."
+      ]
+    },
+    {
+      "number": 1007,
+      "title": "ImagePullBackOff from private registry after token rotation",
+      "state": "closed",
+      "labels": ["kind/support", "sig/node"],
+      "created_at": "2026-09-10T07:45:00Z",
+      "body": "After rotating the registry robot token, new pods fail with ErrImagePull then ImagePullBackOff: 'unauthorized: authentication required'. Existing pods keep running because the image is cached.",
+      "comments": [
+        "Resolution: the imagePullSecret in each namespace still had the old token. Recreated the docker-registry secret with the new token; use an external secrets operator to keep it in sync."
+      ]
+    },
+    {
+      "number": 1008,
+      "title": "kube-proxy in IPVS mode drops connections after endpoint updates",
+      "state": "open",
+      "labels": ["kind/bug", "sig/network", "area/kube-proxy"],
+      "created_at": "2026-09-11T10:00:00Z",
+      "body": "With kube-proxy in IPVS mode, clients see connection resets for ~1s whenever a backend pod is replaced. Stale conntrack entries keep pointing at the deleted endpoint.",
+      "comments": [
+        "Setting net.ipv4.vs.conntrack=1 and net.ipv4.vs.expire_nodest_conn=1 reduces resets; graceful termination of endpoints is the proper fix."
+      ]
+    },
+    {
+      "number": 1009,
+      "title": "kube-apiserver requests fail with 'context deadline exceeded' when etcd is slow",
+      "state": "closed",
+      "labels": ["kind/bug", "sig/api-machinery", "area/apiserver"],
+      "created_at": "2026-09-12T04:22:00Z",
+      "body": "kubectl commands intermittently fail with 'Error from server: etcdserver: request timed out' and apiserver logs 'context deadline exceeded' for etcd calls. etcd metrics show wal_fsync_duration p99 above 500ms.",
+      "comments": [
+        "Resolution: etcd shared a disk with container logs. Moving the etcd data dir to a dedicated SSD brought fsync p99 under 10ms and the deadline errors disappeared."
+      ]
+    },
+    {
+      "number": 1010,
+      "title": "HPA not scaling: unable to get metrics for resource cpu",
+      "state": "closed",
+      "labels": ["kind/support", "sig/autoscaling"],
+      "created_at": "2026-09-13T12:10:00Z",
+      "body": "HorizontalPodAutoscaler shows <unknown>/50% and events say 'failed to get cpu utilization: unable to get metrics for resource cpu'. metrics-server logs 'x509: cannot validate certificate because it doesn't contain any IP SANs' when scraping kubelets.",
+      "comments": [
+        "Resolution: enabled kubelet serving certificate rotation so kubelet certs include the node IP, and approved the pending CSRs. --kubelet-insecure-tls also works but is not recommended."
+      ]
+    },
+    {
+      "number": 1011,
+      "title": "Nodes go NotReady after kubelet client certificate expires",
+      "state": "closed",
+      "labels": ["kind/bug", "sig/node", "area/kubelet"],
+      "created_at": "2026-09-14T00:05:00Z",
+      "body": "Exactly one year after cluster creation, several nodes became NotReady. The kubelet log shows 'x509: certificate has expired or is not yet valid' when talking to the API server.",
+      "comments": [
+        "Resolution: set rotateCertificates: true in the KubeletConfiguration so the kubelet requests a new client certificate before expiry; for already expired nodes, re-bootstrap the kubelet with a new bootstrap token."
+      ]
+    },
+    {
+      "number": 1012,
+      "title": "ingress-nginx returns 502 Bad Gateway during rolling updates",
+      "state": "closed",
+      "labels": ["kind/support", "sig/network"],
+      "created_at": "2026-09-15T16:40:00Z",
+      "body": "During every Deployment rollout ingress-nginx returns a burst of 502 Bad Gateway. The controller still routes to pods that already received SIGTERM.",
+      "comments": [
+        "Resolution: add a preStop hook (sleep 10) and a readinessProbe so the pod is removed from endpoints before the app stops accepting connections."
+      ]
+    },
+    {
+      "number": 1013,
+      "title": "PVC stays Pending: waiting for first consumer to be created before binding",
+      "state": "closed",
+      "labels": ["kind/support", "sig/storage"],
+      "created_at": "2026-09-16T09:00:00Z",
+      "body": "A new PersistentVolumeClaim stays Pending with the event 'waiting for first consumer to be created before binding'.",
+      "comments": [
+        "This is expected: the StorageClass uses volumeBindingMode: WaitForFirstConsumer, so the volume is provisioned only when a pod using the claim is scheduled. Create the pod and the PVC binds."
+      ]
+    },
+    {
+      "number": 1014,
+      "title": "kubelet evicts pods with DiskPressure on log-heavy nodes",
+      "state": "open",
+      "labels": ["kind/bug", "sig/node", "area/kubelet"],
+      "created_at": "2026-09-17T18:30:00Z",
+      "body": "Pods are evicted with 'The node was low on resource: ephemeral-storage' and the node gets the DiskPressure condition. A chatty sidecar writes several GB of stdout logs per hour.",
+      "comments": [
+        "Set containerLogMaxSize: 50Mi and containerLogMaxFiles: 3 in the kubelet config, and add ephemeral-storage limits to the noisy containers."
+      ]
+    },
+    {
+      "number": 1015,
+      "title": "CoreDNS CrashLoopBackOff: Loop detected for zone",
+      "state": "closed",
+      "labels": ["kind/bug", "area/dns"],
+      "created_at": "2026-09-18T06:15:00Z",
+      "body": "CoreDNS pods are in CrashLoopBackOff. Logs show '[FATAL] plugin/loop: Loop (127.0.0.1:43851 -> :53) detected for zone \".\"'. The nodes run systemd-resolved, so /etc/resolv.conf points to 127.0.0.53.",
+      "comments": [
+        "Resolution: point the kubelet --resolv-conf at /run/systemd/resolve/resolv.conf (the real upstream servers) instead of the stub resolver, then restart CoreDNS."
+      ]
+    },
+    {
+      "number": 1016,
+      "title": "Scheduler throughput drops on 5000-node clusters",
+      "state": "open",
+      "labels": ["kind/feature", "sig/scheduling"],
+      "created_at": "2026-09-19T14:00:00Z",
+      "body": "kube-scheduler schedules only ~30 pods/s on a 5000-node cluster and the FailedScheduling backlog grows during batch jobs.",
+      "comments": [
+        "Lower percentageOfNodesToScore (for example to 10) so the scheduler stops scoring after enough feasible nodes are found, and raise the client QPS/burst."
+      ]
+    },
+    {
+      "number": 1017,
+      "title": "Frequent etcd leader elections across availability zones",
+      "state": "open",
+      "labels": ["kind/bug", "area/etcd"],
+      "created_at": "2026-09-20T03:33:00Z",
+      "body": "etcd logs 'etcdserver: leader changed' several times per hour and apiserver requests briefly fail. Control-plane nodes are spread across zones with 15-30ms RTT.",
+      "comments": [
+        "Tune --heartbeat-interval to about the RTT (e.g. 100ms) and --election-timeout to 10x that (1000ms). Check that disk fsync latency is also low."
+      ]
+    },
+    {
+      "number": 1018,
+      "title": "Job podFailurePolicy ignored when backoffLimit is reached",
+      "state": "open",
+      "labels": ["kind/bug", "sig/apps"],
+      "created_at": "2026-09-21T10:10:00Z",
+      "body": "A Job with podFailurePolicy action Ignore for exit code 42 still fails once backoffLimit is reached. kube-controller-manager counts the ignored failures toward the backoff limit.",
+      "comments": [
+        "Confirmed on 1.31. Pods must have restartPolicy: Never for podFailurePolicy to apply; with OnFailure the policy is skipped."
+      ]
+    },
+    {
+      "number": 1019,
+      "title": "kube-apiserver OOMKilled during large LIST requests",
+      "state": "closed",
+      "labels": ["kind/bug", "sig/api-machinery", "area/apiserver"],
+      "created_at": "2026-09-22T21:00:00Z",
+      "body": "A monitoring tool lists all pods in all namespaces without pagination every 10s. kube-apiserver memory spikes and the process is OOMKilled.",
+      "comments": [
+        "Resolution: make clients use pagination (limit/continue) and watch instead of polling LIST, and configure API Priority and Fairness to cap the tool's concurrency."
+      ]
+    },
+    {
+      "number": 1020,
+      "title": "kubectl logs fails: tls: failed to verify certificate",
+      "state": "closed",
+      "labels": ["kind/support", "sig/node", "area/kubelet"],
+      "created_at": "2026-09-23T08:50:00Z",
+      "body": "kubectl logs and kubectl exec return 'Error from server: Get https://10.0.1.5:10250/...: tls: failed to verify certificate: x509: certificate signed by unknown authority'.",
+      "comments": [
+        "Resolution: enable serverTLSBootstrap in the kubelet config and approve the kubelet-serving CSRs so the kubelet serves a cert signed by the cluster CA."
+      ]
+    },
+    {
+      "number": 1021,
+      "title": "Slow DNS lookups because of ndots:5",
+      "state": "closed",
+      "labels": ["kind/support", "area/dns"],
+      "created_at": "2026-09-24T11:11:00Z",
+      "body": "Each external lookup (api.example.com) produces 5 failed search-domain queries before the real one, adding latency and load on CoreDNS.",
+      "comments": [
+        "Resolution: set dnsConfig.options ndots: 2 on the pod spec, or use fully qualified names with a trailing dot."
+      ]
+    },
+    {
+      "number": 1022,
+      "title": "Containers OOMKilled although working set is below the memory limit (cgroup v2)",
+      "state": "open",
+      "labels": ["kind/bug", "sig/node"],
+      "created_at": "2026-09-25T17:25:00Z",
+      "body": "Java pods are OOMKilled with exit code 137 while container_memory_working_set_bytes is 70% of the limit. Nodes moved to cgroup v2. Page cache from heavy file I/O seems to count toward the limit.",
+      "comments": [
+        "Size the JVM heap with -XX:MaxRAMPercentage=70 and leave headroom for page cache and off-heap memory; newer kernels reclaim page cache before OOM more reliably."
+      ]
+    },
+    {
+      "number": 1023,
+      "title": "kube-proxy high CPU in iptables mode with 10k Services",
+      "state": "open",
+      "labels": ["kind/feature", "sig/network", "area/kube-proxy"],
+      "created_at": "2026-09-26T13:45:00Z",
+      "body": "kube-proxy in iptables mode uses a full core and syncs take 20s+ on a cluster with 10,000 Services, delaying endpoint updates.",
+      "comments": [
+        "Switch kube-proxy to IPVS or nftables mode, which scale much better with many Services, and raise --iptables-min-sync-period if you must stay on iptables."
+      ]
+    },
+    {
+      "number": 1024,
+      "title": "Pods not terminated gracefully when a node shuts down",
+      "state": "closed",
+      "labels": ["kind/feature", "sig/node", "area/kubelet"],
+      "created_at": "2026-09-27T19:00:00Z",
+      "body": "When a node is shut down for maintenance, pods are killed immediately and stateful apps lose in-flight work.",
+      "comments": [
+        "Resolution: enable graceful node shutdown by setting shutdownGracePeriod: 60s and shutdownGracePeriodCriticalPods: 20s in the KubeletConfiguration; the kubelet then delays shutdown via systemd inhibitor locks."
+      ]
+    }
+  ]
+}

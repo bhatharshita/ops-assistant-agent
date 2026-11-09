@@ -1,0 +1,49 @@
+2026-10-14T00:11:39.656Z INFO kube-scheduler node-1 Successfully bound pod "default/web-78" to node
+2026-10-14T00:51:41.646Z INFO kube-scheduler node-1 Successfully bound pod "default/web-31" to node
+2026-10-14T01:06:13.573Z INFO kube-scheduler node-1 Successfully bound pod "default/web-38" to node
+2026-10-14T01:46:21.594Z INFO kube-scheduler node-3 Successfully bound pod "default/web-76" to node
+2026-10-14T02:19:54.866Z INFO kube-scheduler node-1 Successfully bound pod "default/web-40" to node
+2026-10-14T03:59:33.751Z INFO kube-scheduler node-3 Successfully bound pod "default/web-4" to node
+2026-10-14T04:12:05.817Z INFO kube-scheduler node-5 Successfully bound pod "default/web-49" to node
+2026-10-14T05:41:34.335Z INFO kube-scheduler node-5 Successfully bound pod "default/web-46" to node
+2026-10-14T05:51:38.413Z INFO kube-scheduler node-4 Successfully bound pod "default/web-73" to node
+2026-10-14T06:00:08.236Z INFO kube-scheduler node-3 Successfully bound pod "default/web-26" to node
+2026-10-14T06:07:39.972Z INFO kube-scheduler node-1 Successfully bound pod "default/web-60" to node
+2026-10-14T07:10:46.627Z INFO kube-scheduler node-4 Successfully bound pod "default/web-89" to node
+2026-10-14T08:36:10.874Z INFO kube-scheduler node-4 Successfully bound pod "default/web-19" to node
+2026-10-14T08:45:23.645Z INFO kube-scheduler node-2 Successfully bound pod "default/web-12" to node
+2026-10-14T09:58:19.051Z INFO kube-scheduler node-2 Successfully bound pod "default/web-17" to node
+2026-10-14T10:09:38.189Z WARN kube-scheduler node-3 FailedScheduling pod "ml/train-87": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T10:38:10.551Z WARN kube-scheduler node-4 FailedScheduling pod "ml/train-91": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T10:45:57.007Z WARN kube-scheduler node-4 FailedScheduling pod "ml/train-6": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:03:06.321Z WARN kube-scheduler node-4 FailedScheduling pod "ml/train-2": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:04:02.891Z INFO kube-scheduler node-3 Successfully bound pod "default/web-59" to node
+2026-10-14T11:14:46.844Z WARN kube-scheduler node-4 FailedScheduling pod "ml/train-84": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:26:40.873Z WARN kube-scheduler node-4 FailedScheduling pod "ml/train-84": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:33:46.200Z WARN kube-scheduler node-3 FailedScheduling pod "ml/train-44": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:44:53.296Z WARN kube-scheduler node-4 FailedScheduling pod "ml/train-13": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:49:35.783Z WARN kube-scheduler node-4 FailedScheduling pod "ml/train-50": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:55:45.771Z WARN kube-scheduler node-2 FailedScheduling pod "ml/train-65": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:55:49.580Z WARN kube-scheduler node-3 FailedScheduling pod "ml/train-13": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:56:22.718Z WARN kube-scheduler node-1 FailedScheduling pod "ml/train-61": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:57:40.596Z WARN kube-scheduler node-2 FailedScheduling pod "ml/train-74": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T11:58:35.592Z WARN kube-scheduler node-2 FailedScheduling pod "ml/train-64": 0/5 nodes are available: 3 node(s) had untolerated taint {dedicated: gpu}
+2026-10-14T13:47:43.175Z INFO kube-scheduler node-3 Successfully bound pod "default/web-3" to node
+2026-10-14T14:34:09.808Z INFO kube-scheduler node-3 Successfully bound pod "default/web-29" to node
+2026-10-14T14:52:22.356Z INFO kube-scheduler node-2 Successfully bound pod "default/web-64" to node
+2026-10-14T15:02:34.822Z INFO kube-scheduler node-4 Successfully bound pod "default/web-70" to node
+2026-10-14T15:08:51.680Z INFO kube-scheduler node-3 Successfully bound pod "default/web-30" to node
+2026-10-14T15:16:43.148Z INFO kube-scheduler node-5 Successfully bound pod "default/web-33" to node
+2026-10-14T16:15:58.171Z INFO kube-scheduler node-2 Successfully bound pod "default/web-81" to node
+2026-10-14T16:21:46.870Z INFO kube-scheduler node-2 Successfully bound pod "default/web-22" to node
+2026-10-14T17:53:02.128Z INFO kube-scheduler node-3 Successfully bound pod "default/web-30" to node
+2026-10-14T17:55:19.867Z INFO kube-scheduler node-4 Successfully bound pod "default/web-13" to node
+2026-10-14T18:14:55.181Z INFO kube-scheduler node-1 Successfully bound pod "default/web-57" to node
+2026-10-14T18:52:33.920Z INFO kube-scheduler node-3 Successfully bound pod "default/web-68" to node
+2026-10-14T18:55:35.157Z INFO kube-scheduler node-1 Successfully bound pod "default/web-75" to node
+2026-10-14T20:37:26.305Z INFO kube-scheduler node-4 Successfully bound pod "default/web-41" to node
+2026-10-14T21:37:43.592Z INFO kube-scheduler node-5 Successfully bound pod "default/web-21" to node
+2026-10-14T21:49:50.933Z INFO kube-scheduler node-3 Successfully bound pod "default/web-96" to node
+2026-10-14T21:54:27.514Z INFO kube-scheduler node-2 Successfully bound pod "default/web-30" to node
+2026-10-14T23:28:13.425Z INFO kube-scheduler node-4 Successfully bound pod "default/web-36" to node
+2026-10-14T23:59:04.876Z INFO kube-scheduler node-4 Successfully bound pod "default/web-14" to node
