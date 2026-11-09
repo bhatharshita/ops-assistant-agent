@@ -19,6 +19,6 @@ def get_chat_model(settings: Settings) -> BaseChatModel | None:
 
         # base_url lets the same client talk to Mistral, Azure-compatible gateways or Ollama.
         return ChatOpenAI(model=settings.openai_model, api_key=settings.openai_api_key,
-                          base_url=settings.openai_base_url,
+                          base_url=settings.openai_base_url or None,
                           temperature=settings.llm_temperature)
     return None

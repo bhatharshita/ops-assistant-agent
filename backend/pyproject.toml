@@ -2,7 +2,6 @@
 name = "ops-assistant"
 version = "0.1.0"
 description = "LangGraph multi-agent assistant that answers plain-English questions about an open-source project's logs and GitHub issues."
-readme = "../README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 dependencies = [
@@ -34,6 +33,7 @@ include = ["ops_assistant*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
 markers = ["db: needs a PostgreSQL + pgvector database (set DATABASE_URL)"]
 
 [tool.ruff]

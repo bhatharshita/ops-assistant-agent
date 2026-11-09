@@ -48,7 +48,7 @@ class HashingEmbedder:
         out = np.zeros((len(texts), self.dim), dtype=np.float32)
         for row, text in enumerate(texts):
             tokens = TOKEN_RE.findall(text.lower())
-            features = tokens + [f"{a}_{b}" for a, b in zip(tokens, tokens[1:])]
+            features = tokens + [f"{a}_{b}" for a, b in zip(tokens, tokens[1:], strict=False)]
             for f in features:
                 idx, sign = self._bucket(f)
                 out[row, idx] += sign

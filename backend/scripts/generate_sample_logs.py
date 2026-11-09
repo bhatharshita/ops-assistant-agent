@@ -10,11 +10,11 @@ events?" have one known answer that the eval set can check.
 from __future__ import annotations
 
 import random
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parents[2] / "data" / "sample" / "logs"
-START = datetime(2026, 10, 14, tzinfo=timezone.utc)
+START = datetime(2026, 10, 14, tzinfo=UTC)
 NODES = ["node-1", "node-2", "node-3", "node-4", "node-5"]
 
 # component -> list of (level, message template, count, node weights or None, hour window)

@@ -120,10 +120,12 @@ def compose_answer(question: str, citations: list[dict[str, Any]],
             rows = result["rows"][:5]
             items = "; ".join(f"{r['key']}: {r['count']} lines" for r in rows)
             top = rows[0]
+            span = (f" between {top['first_seen']} and {top['last_seen']}"
+                    if top["first_seen"] else "")
             parts.append(
                 f"From the logs (grouped by {result['group_by']}): {items}. "
-                f"The top one is {top['key']} with {top['count']} lines between "
-                f"{top['first_seen']} and {top['last_seen']}; latest example: \"{top['example']}\"."
+                f"The top one is {top['key']} with {top['count']} lines{span}; "
+                f"latest example: \"{top['example'][:300]}\"."
             )
         elif tr["name"] == "graph_neighbors" and result.get("found"):
             links = ", ".join(f"{n['label']} ({n['relation']}, weight {n['weight']})"
@@ -135,12 +137,16 @@ def compose_answer(question: str, citations: list[dict[str, Any]],
             fix = _resolution(result["content"])
             parts.append(f"Issue {result['title']}" + (f": {fix}" if fix else "."))
 
-    issue_lines = []
+    issue_lines: list[str] = []
+    seen_docs: set[str] = set()
     for n, src in enumerate(citations, start=1):
+        if src["document_id"] in seen_docs:  # one line per issue, cite its best chunk
+            continue
+        seen_docs.add(src["document_id"])
         if src["source_type"] == "issue" and len(issue_lines) < 3:
             fix = _resolution(src["content"])
-            if fix:
-                issue_lines.append(f"{src['title']}: {fix} [{n}]")
+            issue_lines.append(f"{src['title']}" + (f": {fix}" if fix else " (no fix recorded)")
+                               + f" [{n}]")
         elif src["source_type"] == "log" and src["chunk_id"].split("#")[-1].startswith("digest") \
                 and not any(tr["name"] == "log_stats" for tr in tool_results):
             issue_lines.append(f"{src['content'].splitlines()[0]} [{n}]")
