@@ -185,7 +185,12 @@ class PgStore:
         return [_hit(r) for r in rows]
 
     def search_keyword(self, query: str, k: int, source_type: str | None = None) -> list[Hit]:
-        """Postgres full-text search. Terms are OR-ed so partial matches still rank."""
+        """Postgres full-text search. Terms are OR-ed so partial matches still rank.
+
+        ts_rank_cd normalisation flag 2 divides the score by the chunk length, like
+        BM25's length normalisation. Without it, long log windows that repeat common
+        words ("pod", "node") outrank the short issue chunk that actually answers.
+        """
         with self.pool.connection() as conn:
             rows = conn.execute(
                 """WITH q AS (
@@ -195,7 +200,7 @@ class PgStore:
                        FROM unnest(to_tsvector('english', %(text)s))
                    )
                    SELECT c.id, c.document_id, c.source_type, d.title, d.url, c.content,
-                          ts_rank_cd(c.tsv, q.tsq) AS score
+                          ts_rank_cd(c.tsv, q.tsq, 2) AS score
                    FROM chunks c JOIN documents d ON d.id = c.document_id, q
                    WHERE c.tsv @@ q.tsq
                      AND (%(st)s::text IS NULL OR c.source_type = %(st)s)

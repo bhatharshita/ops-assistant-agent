@@ -1,0 +1,257 @@
+{
+  "summary": {
+    "label": "baseline-hybrid",
+    "llm_provider": "offline",
+    "embedding_provider": "hashing",
+    "retrieval_mode": "hybrid",
+    "n": 24,
+    "route_accuracy": 0.875,
+    "hit@5": 0.913,
+    "mrr": 0.703,
+    "keyword_recall": 0.948,
+    "latency_p50_ms": 1.7,
+    "latency_p95_ms": 2.6
+  },
+  "rows": [
+    {
+      "id": "q01",
+      "question": "Which node had the most OOMKilled containers?",
+      "expected_route": "logs",
+      "route": "logs",
+      "rank": 2,
+      "keyword_recall": 1.0,
+      "latency_ms": 18.6,
+      "answer": "From the logs (grouped by node): node-4: 24 lines; node-5: 7 lines; node-1: 3 lines; node-2: 2 lines; node-3: 2 lines. The top one is node-4 with 24 lines between 2026-10-14T03:55:17.812000+00:00 and 2026-10-14T22:28:46.019000+00:00; latest example: \"Container \"api\" in pod \"shop/checkout-78\" was OOMKilled (exit code 137), memory limit 512Mi\"."
+    },
+    {
+      "id": "q02",
+      "question": "Which component logged the most ERROR lines?",
+      "expected_route": "logs",
+      "route": "logs",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 2.6,
+      "answer": "From the logs (grouped by component): kubelet: 88 lines; kube-apiserver: 22 lines; coredns: 18 lines; etcd: 15 lines; containerd: 10 lines. The top one is kubelet with 88 lines between 2026-10-14T00:04:40.392000+00:00 and 2026-10-14T22:43:35.485000+00:00; latest example: \"Back-off restarting failed container \"worker\" in pod \"batch/etl-63\" (CrashLoopBackOff)\"."
+    },
+    {
+      "id": "q03",
+      "question": "How many 'context deadline exceeded' errors did the API server log?",
+      "expected_route": "logs",
+      "route": "logs",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.8,
+      "answer": "From the logs (grouped by error_signature): None: 50 lines; context deadline exceeded: 22 lines. The top one is None with 50 lines between 2026-10-14T00:28:07.541000+00:00 and 2026-10-14T23:32:13.398000+00:00; latest example: \"HTTP \"GET /healthz\" 200 4ms\"."
+    },
+    {
+      "id": "q04",
+      "question": "On which node did PLEG is not healthy errors happen?",
+      "expected_route": "logs",
+      "route": "logs",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.8,
+      "answer": "From the logs (grouped by node): node-3: 12 lines. The top one is node-3 with 12 lines between 2026-10-14T09:23:48.835000+00:00 and 2026-10-14T11:34:43.202000+00:00; latest example: \"PLEG is not healthy: pleg was last seen active 3m31s ago; threshold is 3m0s\"."
+    },
+    {
+      "id": "q05",
+      "question": "Which node shows the 'failed to create shim task' containerd errors?",
+      "expected_route": "logs",
+      "route": "logs",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.8,
+      "answer": "From the logs (grouped by node): node-2: 10 lines. The top one is node-2 with 10 lines between 2026-10-14T01:16:53.309000+00:00 and 2026-10-14T02:56:04.197000+00:00; latest example: \"failed to create shim task: OCI runtime create failed: cgroup driver mismatch (container 44)\"."
+    },
+    {
+      "id": "q06",
+      "question": "What kinds of errors does etcd log, and how many of each?",
+      "expected_route": "logs",
+      "route": "logs",
+      "rank": 4,
+      "keyword_recall": 0.75,
+      "latency_ms": 1.7,
+      "answer": "From the logs (grouped by error_signature): mvcc: database space exceeded: 15 lines. The top one is mvcc: database space exceeded with 15 lines between 2026-10-14T03:14:28.640000+00:00 and 2026-10-14T03:52:47.506000+00:00; latest example: \"etcdserver: mvcc: database space exceeded (quota 2.1 GB, alarm NOSPACE)\"."
+    },
+    {
+      "id": "q07",
+      "question": "Which node had the most CrashLoopBackOff events?",
+      "expected_route": "logs",
+      "route": "logs",
+      "rank": null,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.6,
+      "answer": "From the logs (grouped by node): node-2: 13 lines; node-1: 4 lines; node-4: 4 lines; node-5: 3 lines; node-3: 1 lines. The top one is node-2 with 13 lines between 2026-10-14T02:40:37.996000+00:00 and 2026-10-14T22:43:26.779000+00:00; latest example: \"Back-off restarting failed container \"worker\" in pod \"batch/etl-68\" (CrashLoopBackOff)\"."
+    },
+    {
+      "id": "q08",
+      "question": "How was the etcd database space exceeded problem fixed?",
+      "expected_route": "issues",
+      "route": "issues",
+      "rank": 2,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.8,
+      "answer": "Relevant evidence:\n- #1003 etcd 'mvcc: database space exceeded' makes all API writes fail: compact to the current revision, run etcdctl defrag on each member, then etcdctl alarm disarm. Long term we raised --quota-backend-bytes to 8 GiB and enabled automatic compaction (--auto-compaction-retention=1h). [1]\n- #1009 kube-apiserver requests fail with 'context deadline exceeded' when etcd is slow: etcd shared a disk with container logs. Moving the etcd data dir to a dedicated SSD brought fsync p99 under 10ms and the deadline errors disappeared. [2]\n- #1017 Frequent etcd leader elections across availability zones: Tune --heartbeat-interval to about the RTT (e.g. 100ms) and --election-timeout to 10x that (1000ms). Check that disk fsync latency is also low. [3]"
+    },
+    {
+      "id": "q09",
+      "question": "Why do pods go into CrashLoopBackOff after a containerd upgrade and what is the fix?",
+      "expected_route": "issues",
+      "route": "issues",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.2,
+      "answer": "Relevant evidence:\n- #1001 Pods stuck in CrashLoopBackOff after upgrading containerd to 1.7.20: set SystemdCgroup = true under the runc options in /etc/containerd/config.toml so containerd and the kubelet agree on the systemd cgroup driver, then restart containerd. Pods recover without being recreated. [1]\n- #1012 ingress-nginx returns 502 Bad Gateway during rolling updates: add a preStop hook (sleep 10) and a readinessProbe so the pod is removed from endpoints before the app stops accepting connections. [2]\n- #1006 kubelet reports 'PLEG is not healthy' on nodes with many containers: PLEG (pod lifecycle event generator) relists all containers from the runtime. Slow runtime or disk I/O makes the relist exceed the threshold. Reducing maxPods to 110 and moving /var/lib/containerd to local SSD fixed it for us. [3]"
+    },
+    {
+      "id": "q10",
+      "question": "How do I fix CoreDNS i/o timeout errors under load?",
+      "expected_route": "issues",
+      "route": "issues",
+      "rank": 3,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.0,
+      "answer": "Relevant evidence:\n- #1004 CoreDNS i/o timeout resolving external names under load: scaled CoreDNS with the cluster-proportional-autoscaler, increased the cache plugin TTL to 30s and deployed NodeLocal DNSCache so most lookups never leave the node. Timeouts stopped. [1]\n- #1022 Containers OOMKilled although working set is below the memory limit (cgroup v2): Size the JVM heap with -XX:MaxRAMPercentage=70 and leave headroom for page cache and off-heap memory; newer kernels reclaim page cache before OOM more reliably. [2]\n- #1021 Slow DNS lookups because of ndots:5: set dnsConfig.options ndots: 2 on the pod spec, or use fully qualified names with a trailing dot. [3]"
+    },
+    {
+      "id": "q11",
+      "question": "What causes the kubelet PLEG is not healthy error?",
+      "expected_route": "issues",
+      "route": "issues",
+      "rank": 4,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.0,
+      "answer": "Relevant evidence:\n- #1006 kubelet reports 'PLEG is not healthy' on nodes with many containers: PLEG (pod lifecycle event generator) relists all containers from the runtime. Slow runtime or disk I/O makes the relist exceed the threshold. Reducing maxPods to 110 and moving /var/lib/containerd to local SSD fixed it for us. [1]\n- #1011 Nodes go NotReady after kubelet client certificate expires: set rotateCertificates: true in the KubeletConfiguration so the kubelet requests a new client certificate before expiry; for already expired nodes, re-bootstrap the kubelet with a new bootstrap token. [2]\n- #1010 HPA not scaling: unable to get metrics for resource cpu: enabled kubelet serving certificate rotation so kubelet certs include the node IP, and approved the pending CSRs. --kubelet-insecure-tls also works but is not recommended. [3]"
+    },
+    {
+      "id": "q12",
+      "question": "How should I fix ImagePullBackOff with 'unauthorized: authentication required' after rotating a registry token?",
+      "expected_route": "issues",
+      "route": "issues",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.0,
+      "answer": "Relevant evidence:\n- #1007 ImagePullBackOff from private registry after token rotation: the imagePullSecret in each namespace still had the old token. Recreated the docker-registry secret with the new token; use an external secrets operator to keep it in sync. [1]\n- #1011 Nodes go NotReady after kubelet client certificate expires: set rotateCertificates: true in the KubeletConfiguration so the kubelet requests a new client certificate before expiry; for already expired nodes, re-bootstrap the kubelet with a new bootstrap token. [2]\n- #1006 kubelet reports 'PLEG is not healthy' on nodes with many containers: PLEG (pod lifecycle event generator) relists all containers from the runtime. Slow runtime or disk I/O makes the relist exceed the threshold. Reducing maxPods to 110 and moving /var/lib/containerd to local SSD fixed it for us. [3]"
+    },
+    {
+      "id": "q13",
+      "question": "Nodes became NotReady with x509: certificate has expired. How do we prevent that?",
+      "expected_route": "issues",
+      "route": "mixed",
+      "rank": 2,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.7,
+      "answer": "From the logs (grouped by node): node-2: 4 lines. The top one is node-2 with 4 lines between 2026-10-14T22:04:55.058000+00:00 and 2026-10-14T22:31:21.494000+00:00; latest example: \"Unable to authenticate the request: x509: certificate has expired or is not yet valid\".\n\nRelevant evidence:\n- #1011 Nodes go NotReady after kubelet client certificate expires: set rotateCertificates: true in the KubeletConfiguration so the kubelet requests a new client certificate before expiry; for already expired nodes, re-bootstrap the kubelet with a new bootstrap token. [2]"
+    },
+    {
+      "id": "q14",
+      "question": "Why does ingress-nginx return 502 Bad Gateway during rolling updates?",
+      "expected_route": "issues",
+      "route": "issues",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.0,
+      "answer": "Relevant evidence:\n- #1012 ingress-nginx returns 502 Bad Gateway during rolling updates: add a preStop hook (sleep 10) and a readinessProbe so the pod is removed from endpoints before the app stops accepting connections. [1]\n- #1023 kube-proxy high CPU in iptables mode with 10k Services: Switch kube-proxy to IPVS or nftables mode, which scale much better with many Services, and raise --iptables-min-sync-period if you must stay on iptables. [2]\n- #1001 Pods stuck in CrashLoopBackOff after upgrading containerd to 1.7.20: set SystemdCgroup = true under the runc options in /etc/containerd/config.toml so containerd and the kubelet agree on the systemd cgroup driver, then restart containerd. Pods recover without being recreated. [3]"
+    },
+    {
+      "id": "q15",
+      "question": "Is there a known issue about PVCs stuck Pending waiting for first consumer?",
+      "expected_route": "issues",
+      "route": "issues",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.0,
+      "answer": "Relevant evidence:\n- #1013 PVC stays Pending: waiting for first consumer to be created before binding: This is expected: the StorageClass uses volumeBindingMode: WaitForFirstConsumer, so the volume is provisioned only when a pod using the claim is scheduled. Create the pod and the PVC binds. [1]\n- #1005 kube-state-metrics OOMKilled on large clusters: raised the memory limit to 1Gi and enabled horizontal sharding (--shard / --total-shards) across 3 replicas. [2]\n- #1001 Pods stuck in CrashLoopBackOff after upgrading containerd to 1.7.20: set SystemdCgroup = true under the runc options in /etc/containerd/config.toml so containerd and the kubelet agree on the systemd cgroup driver, then restart containerd. Pods recover without being recreated. [3]"
+    },
+    {
+      "id": "q16",
+      "question": "How do we stop DiskPressure evictions caused by chatty container logs?",
+      "expected_route": "issues",
+      "route": "mixed",
+      "rank": null,
+      "keyword_recall": 0.0,
+      "latency_ms": 1.6,
+      "answer": "From the logs (grouped by component): kubelet: 6 lines. The top one is kubelet with 6 lines between 2026-10-14T18:06:51.532000+00:00 and 2026-10-14T19:55:16.647000+00:00; latest example: \"Eviction manager: the node was low on resource: ephemeral-storage (DiskPressure)\"."
+    },
+    {
+      "id": "q17",
+      "question": "Tell me about issue #1015",
+      "expected_route": "issues",
+      "route": "issues",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.8,
+      "answer": "Issue #1015 CoreDNS CrashLoopBackOff: Loop detected for zone: point the kubelet --resolv-conf at /run/systemd/resolve/resolv.conf (the real upstream servers) instead of the stub resolver, then restart CoreDNS.\n\nRelevant evidence:\n- #1015 CoreDNS CrashLoopBackOff: Loop detected for zone: point the kubelet --resolv-conf at /run/systemd/resolve/resolv.conf (the real upstream servers) instead of the stub resolver, then restart CoreDNS. [1]\n- #1002 kube-scheduler leaves pods Pending with topologySpreadConstraints on tainted nodes: Workaround: set nodeTaintsPolicy: Honor in the topology spread constraint so tainted nodes the pod cannot tolerate are excluded from the skew calculation. [2]\n- #1008 kube-proxy in IPVS mode drops connections after endpoint updates: Setting net.ipv4.vs.conntrack=1 and net.ipv4.vs.expire_nodest_conn=1 reduces resets; graceful termination of endpoints is the proper fix. [3]"
+    },
+    {
+      "id": "q18",
+      "question": "How do we fix frequent etcd leader elections across zones?",
+      "expected_route": "issues",
+      "route": "mixed",
+      "rank": 2,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.4,
+      "answer": "From the logs (grouped by error_signature): None: 32 lines; mvcc: database space exceeded: 15 lines; leader changed: 8 lines. The top one is None with 32 lines between 2026-10-14T00:47:00.050000+00:00 and 2026-10-14T23:45:37.710000+00:00; latest example: \"finished scheduled compaction at revision 8873\".\n\nRelevant evidence:\n- #1017 Frequent etcd leader elections across availability zones: Tune --heartbeat-interval to about the RTT (e.g. 100ms) and --election-timeout to 10x that (1000ms). Check that disk fsync latency is also low. [2]\n- #1003 etcd 'mvcc: database space exceeded' makes all API writes fail: compact to the current revision, run etcdctl defrag on each member, then etcdctl alarm disarm. Long term we raised --quota-backend-bytes to 8 GiB and enabled automatic compaction (--auto-compaction-retention=1h). [5]"
+    },
+    {
+      "id": "q19",
+      "question": "Which issues are related to etcd?",
+      "expected_route": "graph",
+      "route": "graph",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 2.2,
+      "answer": "In the knowledge graph, etcd is linked to: mvcc: database space exceeded (SEEN_IN, weight 15), leader changed (SEEN_IN, weight 8), #1003 etcd 'mvcc: database space exceeded' makes all API writes fail (AFFECTS, weight 1), #1009 kube-apiserver requests fail with 'context deadline exceeded' when etcd is slow (AFFECTS, weight 1), #1017 Frequent etcd leader elections across availability zones (AFFECTS, weight 1). Related issues: #1003 etcd 'mvcc: database space exceeded' makes all API writes fail, #1009 kube-apiserver requests fail with 'context deadline exceeded' when etcd is slow, #1017 Frequent etcd leader elections across availability zones.\n\nRelevant evidence:\n- #1009 kube-apiserver requests fail with 'context deadline exceeded' when etcd is slow: etcd shared a disk with container logs. Moving the etcd data dir to a dedicated SSD brought fsync p99 under 10ms and the deadline errors disappeared. [1]\n- #1017 Frequent etcd leader elections across availability zones: Tune --heartbeat-interval to about the RTT (e.g. 100ms) and --election-timeout to 10x that (1000ms). Check that disk fsync latency is also low. [2]\n- #1011 Nodes go NotReady after kubelet client certificate expires: set rotateCertificates: true in the KubeletConfiguration so the kubelet requests a new client certificate before expiry; for already expired nodes, re-bootstrap the kubelet with a new bootstrap token. [4]"
+    },
+    {
+      "id": "q20",
+      "question": "Which components are associated with the OOMKilled error?",
+      "expected_route": "graph",
+      "route": "graph",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 2.1,
+      "answer": "In the knowledge graph, OOMKilled is linked to: kubelet (SEEN_IN, weight 38), #1005 kube-state-metrics OOMKilled on large clusters (MENTIONS, weight 1), #1019 kube-apiserver OOMKilled during large LIST requests (MENTIONS, weight 1), #1022 Containers OOMKilled although working set is below the memory limit (cgroup v2) (MENTIONS, weight 1). Related issues: #1005 kube-state-metrics OOMKilled on large clusters, #1019 kube-apiserver OOMKilled during large LIST requests, #1022 Containers OOMKilled although working set is below the memory limit (cgroup v2)."
+    },
+    {
+      "id": "q21",
+      "question": "What other issues are linked to the same components as issue #1006?",
+      "expected_route": "graph",
+      "route": "graph",
+      "rank": 3,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.7,
+      "answer": "In the knowledge graph, #1006 kubelet reports 'PLEG is not healthy' on nodes with many containers is linked to: containerd (AFFECTS, weight 1), kubelet (AFFECTS, weight 1), PLEG is not healthy (MENTIONS, weight 1). Related issues: #1001 Pods stuck in CrashLoopBackOff after upgrading containerd to 1.7.20, #1007 ImagePullBackOff from private registry after token rotation, #1010 HPA not scaling: unable to get metrics for resource cpu, #1011 Nodes go NotReady after kubelet client certificate expires, #1014 kubelet evicts pods with DiskPressure on log-heavy nodes, #1015 CoreDNS CrashLoopBackOff: Loop detected for zone.\n\nRelevant evidence:\n- #1004 CoreDNS i/o timeout resolving external names under load: scaled CoreDNS with the cluster-proportional-autoscaler, increased the cache plugin TTL to 30s and deployed NodeLocal DNSCache so most lookups never leave the node. Timeouts stopped. [1]\n- #1011 Nodes go NotReady after kubelet client certificate expires: set rotateCertificates: true in the KubeletConfiguration so the kubelet requests a new client certificate before expiry; for already expired nodes, re-bootstrap the kubelet with a new bootstrap token. [2]\n- #1006 kubelet reports 'PLEG is not healthy' on nodes with many containers: PLEG (pod lifecycle event generator) relists all containers from the runtime. Slow runtime or disk I/O makes the relist exceed the threshold. Reducing maxPods to 110 and moving /var/lib/containerd to local SSD fixed it for us. [3]"
+    },
+    {
+      "id": "q22",
+      "question": "What errors does the kubelet log most often and how do I fix them?",
+      "expected_route": "mixed",
+      "route": "mixed",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.6,
+      "answer": "From the logs (grouped by error_signature): OOMKilled: 38 lines; CrashLoopBackOff: 25 lines; PLEG is not healthy: 12 lines; ImagePullBackOff: 9 lines; x509 certificate expired: 4 lines. The top one is OOMKilled with 38 lines between 2026-10-14T02:59:44.855000+00:00 and 2026-10-14T22:28:46.019000+00:00; latest example: \"Container \"api\" in pod \"shop/checkout-78\" was OOMKilled (exit code 137), memory limit 512Mi\".\n\nRelevant evidence:\n- #1011 Nodes go NotReady after kubelet client certificate expires: set rotateCertificates: true in the KubeletConfiguration so the kubelet requests a new client certificate before expiry; for already expired nodes, re-bootstrap the kubelet with a new bootstrap token. [3]\n- #1020 kubectl logs fails: tls: failed to verify certificate: enable serverTLSBootstrap in the kubelet config and approve the kubelet-serving CSRs so the kubelet serves a cert signed by the cluster CA. [5]"
+    },
+    {
+      "id": "q23",
+      "question": "We see many i/o timeout errors in the coredns logs; how many are there and how do we fix it?",
+      "expected_route": "mixed",
+      "route": "mixed",
+      "rank": 1,
+      "keyword_recall": 1.0,
+      "latency_ms": 1.7,
+      "answer": "From the logs (grouped by error_signature): None: 30 lines; i/o timeout: 18 lines. The top one is None with 30 lines between 2026-10-14T00:19:41.460000+00:00 and 2026-10-14T23:58:24.162000+00:00; latest example: \"[INFO] 10.244.2.20:51234 - \"A IN shop.svc.cluster.local.\" NOERROR 0.0012s\".\n\nRelevant evidence:\n- #1004 CoreDNS i/o timeout resolving external names under load: scaled CoreDNS with the cluster-proportional-autoscaler, increased the cache plugin TTL to 30s and deployed NodeLocal DNSCache so most lookups never leave the node. Timeouts stopped. [3]"
+    },
+    {
+      "id": "q24",
+      "question": "What is the capital of France?",
+      "expected_route": "out_of_scope",
+      "route": "out_of_scope",
+      "rank": null,
+      "keyword_recall": 1.0,
+      "latency_ms": 0.3,
+      "answer": "I can only answer questions about this project's logs, GitHub issues and the relationships between its components and errors. Try asking, for example, \"Which node had the most OOMKilled containers?\" or \"How was the etcd database space exceeded issue fixed?\""
+    }
+  ]
+}
