@@ -232,6 +232,8 @@ difference, so I dropped it.
 
 **Reading these numbers honestly.**
 - 24 questions is a small, hand-written dev set, so treat differences of one question (~0.04) as noise.
+- The HNSW index is approximate, so a fresh ingest can shift dense ranks slightly
+  (a clean re-run of run 3 gave MRR 0.761 instead of 0.757).
 - The offline router rules and this dataset were written by the same person, so offline
   route accuracy is optimistic. The interesting comparison is offline vs an LLM router on the
   same set.
