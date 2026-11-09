@@ -1,6 +1,6 @@
 # Ops Assistant: ask your logs and GitHub issues in plain English
 
-[![CI](https://github.com/<your-github-username>/ops-assistant-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/<your-github-username>/ops-assistant-agent/actions/workflows/ci.yml)
+[![CI](https://github.com/bhatharshita/ops-assistant-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/bhatharshita/ops-assistant-agent/actions/workflows/ci.yml)
 
 A multi-agent assistant for on-call engineers. It answers questions like
 *"Which node had the most OOMKilled containers?"* or *"How was the etcd
